@@ -1,16 +1,20 @@
+import { useState } from "react";
 import ComponentSidebar from "./ComponentSidebar.tsx";
 import ConfigPanel from "./ConfigPanel.tsx";
 import PreviewPanel from "./PreviewPanel.tsx";
+import { type InfoCardConfig, initialInfoCardConfig } from "../types/config.ts";
 
 export default function LowCodeConfigPage() {
+  const [config, setConfig] = useState<InfoCardConfig>(initialInfoCardConfig);
+
   return (
     <div style={{ display: "flex", height: "100vh" }}>
       {/*组件列表*/}
       <ComponentSidebar components={["infoCard", "starCard"]} />
       {/*配置面板*/}
-      <ConfigPanel />
+      <ConfigPanel config={config} onChange={setConfig} />
       {/*实时预览*/}
-      <PreviewPanel title="预览模块1" />
+      <PreviewPanel config={config} />
     </div>
   );
 }
