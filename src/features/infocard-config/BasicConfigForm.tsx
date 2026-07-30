@@ -1,19 +1,19 @@
-import type {InfoCardAction, InfoCardConfig, InfoCardField} from "../../types/config.ts";
+import type { InfoCardAction, InfoCardConfig, InfoCardField } from "../../types/config.ts";
 
 type BasicConfigFormProps = {
   config: InfoCardConfig;
   onChange: (config: {
-      title: string;
-      subTitle: string;
-      statusText: string;
-      statusType: "default" | "success" | "warning" | "danger";
-      companyType: "VIP" | "Normal" | "keyAccount";
-      showBorder: boolean;
-      layout: "vertical" | "compact";
-      size: "small" | "medium";
-      accentColor: string;
-      fields: InfoCardField[];
-      actions: InfoCardAction[];
+    title: string;
+    subTitle: string;
+    statusText: string;
+    statusType: "default" | "success" | "warning" | "danger";
+    companyType: "VIP" | "Normal" | "keyAccount";
+    showBorder: boolean;
+    layout: "vertical" | "compact";
+    size: "small" | "medium";
+    accentColor: string;
+    fields: InfoCardField[];
+    actions: InfoCardAction[];
   }) => void;
 };
 
@@ -137,30 +137,30 @@ export default function BasicConfigForm({ config, onChange }: BasicConfigFormPro
         </label>
       </div>
 
-        {/*公司类型*/}
-        <div style={{ marginBottom: "16px" }}>
-            <label>公司类型</label>
-            <select
-                value={config.companyType}
-                onChange={(e) =>
-                    onChange({
-                        ...config,
-                        companyType: e.target.value as InfoCardConfig["companyType"],
-                    })
-                }
-                style={{
-                    width: "100%",
-                    padding: "6px 8px",
-                    border: "1px solid #d9d9d9",
-                    borderRadius: "4px",
-                    fontSize: "14px",
-                }}
-            >
-                <option value="default">一般客户</option>
-                <option value="success">重要客户</option>
-                <option value="warning">VIP</option>
-            </select>
-        </div>
+      {/*公司类型*/}
+      <div style={{ marginBottom: "16px" }}>
+        <label>公司类型</label>
+        <select
+          value={config.companyType}
+          onChange={(e) =>
+            onChange({
+              ...config,
+              companyType: e.target.value as InfoCardConfig["companyType"],
+            })
+          }
+          style={{
+            width: "100%",
+            padding: "6px 8px",
+            border: "1px solid #d9d9d9",
+            borderRadius: "4px",
+            fontSize: "14px",
+          }}
+        >
+          <option value="default">一般客户</option>
+          <option value="success">重要客户</option>
+          <option value="warning">VIP</option>
+        </select>
+      </div>
     </div>
   );
 }

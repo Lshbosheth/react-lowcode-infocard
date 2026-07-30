@@ -16,7 +16,7 @@ export type InfoCardField = {
   id: string;
   label: string;
   value: string;
-  visible: string;
+  visible: boolean;
 };
 
 export type InfoCardAction = {
@@ -41,25 +41,25 @@ export const initialInfoCardConfig: InfoCardConfig = {
       id: "1",
       label: "客户名称",
       value: "xxx公司",
-      visible: "true",
+      visible: true,
     },
     {
       id: "2",
       label: "客户地址",
       value: "xxx路xxx号",
-      visible: "true",
+      visible: true,
     },
     {
       id: "3",
       label: "客户电话",
       value: "123456789",
-      visible: "true",
+      visible: true,
     },
     {
       id: "4",
       label: "客户邮箱",
       value: "xxx@xxx.com",
-      visible: "true",
+      visible: true,
     },
   ],
   actions: [
@@ -76,4 +76,15 @@ export const initialInfoCardConfig: InfoCardConfig = {
       visible: false,
     },
   ],
+};
+
+
+export type ComponentSidebarConfig = {
+  components: string[];
+  nowComponent: string;
+};
+
+export const initialComponentSidebar: ComponentSidebarConfig = {
+  components: ["InfoCard", "starCard"],
+  nowComponent: "InfoCard",
 };
