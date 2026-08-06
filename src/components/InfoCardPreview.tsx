@@ -11,38 +11,55 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
     danger: "#f5222d",
   };
 
-  const statusColor = statusColors[config.statusType];
+  // const statusColor = statusColors[config.statusType];
+
+  // 根据layout和size决定样式
+  const isCompact = config.layout === "compact";
+  const isSmall = config.size === "small";
+
+  const cardPadding = isSmall ? "12px" : "16px";
+  const titleSize = isSmall ? "16px" : "18px";
+  const textSize = isSmall ? "13px" : "14px";
 
   return (
     <div
       style={{
         backgroundColor: "#fff",
         border: config.showBorder ? "1px solid #e0e0e0" : "none",
-        borderRadius: "8px",
-        padding: "16px",
+        borderRadius: config.borderRadius,
+        padding: cardPadding,
         maxWidth: "400px",
         boxSizing: "border-box",
+        ["--accent-color" as any]: config.accentColor,
       }}
     >
       {/*标题栏*/}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          flexDirection: isCompact ? "row" : "column",
+          justifyContent: isCompact ? "space-between" : "flex-start",
+          alignItems: isCompact ? "center" : "flex-start",
           marginBottom: "12px",
+          gap: isCompact ? "12px" : "4px",
         }}
       >
-        <div>
-          <h3 style={{ margin: 0, fontSize: "18px" }}>{config.title}</h3>
-          <p style={{ margin: "4px 0 0", color: "#666", fontSize: "14px" }}>{config.subTitle}</p>
+        <div style={{ flex: isCompact ? 1 : "none" }}>
+          <h3 style={{ margin: 0, fontSize: titleSize }}>{config.title}</h3>
+          <p style={{ margin: "4px 0 0", color: "#666", fontSize: textSize }}>
+            {!isCompact && (
+              <p style={{ margin: "4px 0 0", color: "#66", fontSize: textSize }}>
+                {config.subTitle}
+              </p>
+            )}
+          </p>
         </div>
         <span
+            className="status"
           style={{
             padding: "4px 12px",
-            backgroundColor: statusColor,
             color: "#fff",
-            borderRadius: "4px",
+            borderRadius: config.borderRadius,
             fontSize: "12px",
           }}
         >
@@ -50,6 +67,10 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
         </span>
       </div>
 
+      {/*紧凑模式下副标题放在字段前面*/}
+      {isCompact && config.subTitle && (
+        <p style={{ margin: "0 0 8px", color: "#666", fontSize: textSize }}>{config.subTitle}</p>
+      )}
       {/*字段列表*/}
       <div
         style={{
@@ -62,8 +83,8 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
           .filter((field) => field.visible)
           .map((field) => (
             <div key={field.id} style={{ marginBottom: "8px" }}>
-              <span style={{ color: "#999", fontSize: "14px" }}>{field.label}:</span>
-              <span style={{ fontSize: "14px" }}>{field.value}</span>
+              <span style={{ color: "#999", fontSize: textSize }}>{field.label}:</span>
+              <span style={{ fontSize: textSize }}>{field.value}</span>
             </div>
           ))}
       </div>
@@ -85,7 +106,7 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
                 backgroundColor: action.type === "primary" ? "#1890ff" : "#fff",
                 color: action.type === "primary" ? "#fff" : "#333",
                 border: action.type === "primary" ? "none" : "1px solid #d9d9d9",
-                borderRadius: "4px",
+                borderRadius: config.borderRadius,
                 cursor: "pointer",
                 fontSize: "14px",
               }}

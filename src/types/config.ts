@@ -7,6 +7,7 @@ export type InfoCardConfig = {
   showBorder: boolean;
   layout: "vertical" | "compact";
   size: "small" | "medium";
+  borderRadius: "0px" | "4px" | "8px" | "16px";
   accentColor: string;
   fields: InfoCardField[];
   actions: InfoCardAction[];
@@ -35,6 +36,7 @@ export const initialInfoCardConfig: InfoCardConfig = {
   showBorder: true,
   layout: "vertical",
   size: "medium",
+  borderRadius: "0px",
   accentColor: "#52c41a",
   fields: [
     {
@@ -77,7 +79,6 @@ export const initialInfoCardConfig: InfoCardConfig = {
     },
   ],
 };
-
 
 export type ComponentSidebarConfig = {
   components: string[];

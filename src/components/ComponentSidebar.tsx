@@ -1,21 +1,20 @@
-import type {ComponentSidebarConfig} from "../types/config.ts";
+import type { ComponentSidebarConfig } from "../types/config.ts";
 
 type ComponentSidebarProps = {
-    component: ComponentSidebarConfig;
-    onChange: (component: ComponentSidebarConfig) => void;
+  component: ComponentSidebarConfig;
+  onChange: (component: ComponentSidebarConfig) => void;
 };
 
 export default function ComponentSidebar({ component, onChange }: ComponentSidebarProps) {
   const handleClick = (name: string) => {
     console.log("点击了", name);
-      onChange({
-          ...component,
-          nowComponent: name
-      })
+    onChange({
+      ...component,
+      nowComponent: name,
+    });
   };
 
-
-    return (
+  return (
     <div
       style={{
         flex: "0 0 200px",

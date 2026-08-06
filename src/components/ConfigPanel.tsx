@@ -1,6 +1,7 @@
 import type { InfoCardConfig } from "../types/config.ts";
 import BasicConfigForm from "../features/infocard-config/BasicConfigForm.tsx";
 import FieldConfigList from "../features/infocard-config/FieldConfigList.tsx";
+import StyleConfigForm from "../features/infocard-config/StyleConfigForm.tsx";
 
 type ConfigPanelProps = {
   config: InfoCardConfig;
@@ -16,6 +17,9 @@ export default function ConfigPanel({ config, onChange }: ConfigPanelProps) {
       <hr style={{ margin: "24px 0", border: "none", borderTop: "1px solid #e0e0e0" }} />
 
       <FieldConfigList config={config} onChange={onChange} />
+
+      <hr style={{ margin: "24px 0", border: "none", borderTop: "1px solid #e0e0e0" }} />
+      <StyleConfigForm config={config} onChange={onChange} />
     </div>
   );
 }
