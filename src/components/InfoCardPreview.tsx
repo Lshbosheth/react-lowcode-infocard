@@ -1,4 +1,4 @@
-import type { InfoCardConfig } from "../types/config.ts";
+import type { InfoCardConfig, InfoCardAction } from "../types/config.ts";
 
 type InfoCardPreviewProps = {
   config: InfoCardConfig;
@@ -20,6 +20,21 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
   const cardPadding = isSmall ? "12px" : "16px";
   const titleSize = isSmall ? "16px" : "18px";
   const textSize = isSmall ? "13px" : "14px";
+
+  const handleBtnClick = (clickAction: InfoCardAction["clickAction"]) => {
+    console.log(clickAction)
+    switch (clickAction) {
+      case "alert":
+        alert("触发警告");
+        break;
+      case "log":
+        console.log("触发日志");
+        break;
+      case "copy":
+        navigator.clipboard.writeText("复制内容");
+        break;
+    }
+  }
 
   return (
     <div
@@ -48,14 +63,14 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
           <h3 style={{ margin: 0, fontSize: titleSize }}>{config.title}</h3>
           <p style={{ margin: "4px 0 0", color: "#666", fontSize: textSize }}>
             {!isCompact && (
-              <p style={{ margin: "4px 0 0", color: "#66", fontSize: textSize }}>
+              <span style={{ margin: "4px 0 0", color: "#66", fontSize: textSize }}>
                 {config.subTitle}
-              </p>
+              </span>
             )}
           </p>
         </div>
         <span
-            className="status"
+          className="status"
           style={{
             padding: "4px 12px",
             color: "#fff",
@@ -110,7 +125,7 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
                 cursor: "pointer",
                 fontSize: "14px",
               }}
-              onClick={() => alert(`点击了：${action.text}`)}
+              onClick={() => handleBtnClick(action.clickAction)}
             >
               {action.text}
             </button>
