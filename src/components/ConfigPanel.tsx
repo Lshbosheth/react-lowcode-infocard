@@ -12,7 +12,7 @@ type ConfigPanelProps = {
 export default function ConfigPanel({ config, onChange }: ConfigPanelProps) {
   const divider = (
     <hr style={{ margin: "24px 0", border: "none", borderTop: "1px solid #e0e0e0" }} />
-  )
+  );
   return (
     <div style={{ flex: "1", padding: "20px", overflowY: "auto", borderRight: "1px solid #ddd" }}>
       <h2>配置面板</h2>

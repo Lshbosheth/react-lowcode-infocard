@@ -25,7 +25,7 @@ export type InfoCardAction = {
   text: string;
   type: "primary" | "default";
   visible: boolean;
-  clickAction: "alert" | "log" | "copy"
+  clickAction: "alert" | "log" | "copy";
 };
 
 export const initialInfoCardConfig: InfoCardConfig = {
@@ -71,14 +71,14 @@ export const initialInfoCardConfig: InfoCardConfig = {
       text: "查看详情",
       type: "primary",
       visible: true,
-      clickAction: "copy"
+      clickAction: "copy",
     },
     {
       id: "2",
       text: "编辑",
       type: "default",
       visible: false,
-      clickAction: "alert"
+      clickAction: "alert",
     },
   ],
 };

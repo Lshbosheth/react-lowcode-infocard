@@ -10,7 +10,7 @@ export default function PreviewPanel({ config }: PreviewPanelProps) {
     <div style={{ flex: "1", padding: "20px", backgroundColor: "#fafafa", overflowY: "auto" }}>
       <h2>实时预览</h2>
       <InfoCardPreview config={config} />
-      <hr style={{ margin: '32px 0', border: 'none', borderTop: '1px solid #e0e0e0' }} />
+      <hr style={{ margin: "32px 0", border: "none", borderTop: "1px solid #e0e0e0" }} />
       <ConfigJsonViewer config={config} />
     </div>
   );

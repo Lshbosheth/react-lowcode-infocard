@@ -95,32 +95,31 @@ export default function StyleConfigForm({ config, onChange }: StyleConfigFormPro
         </div>
       </div>
 
-
-        {/*卡片圆角*/}
-        <div style={{ marginBottom: "16px" }}>
-            <label style={{ display: "block", marginBottom: "4px", fontSize: "14px" }}>卡片圆角</label>
-            <select
-                value={config.size}
-                onChange={(e) =>
-                    onChange({
-                        ...config,
-                        borderRadius: e.target.value as InfoCardConfig["borderRadius"],
-                    })
-                }
-                style={{
-                    width: "100%",
-                    padding: "6px 8px",
-                    border: "1px solid #d9d9d9",
-                    borderRadius: "4px",
-                    fontSize: "14px",
-                }}
-            >
-                <option value="0px">0px</option>
-                <option value="4px">4px</option>
-                <option value="8px">8px</option>
-                <option value="16px">16px</option>
-            </select>
-        </div>
+      {/*卡片圆角*/}
+      <div style={{ marginBottom: "16px" }}>
+        <label style={{ display: "block", marginBottom: "4px", fontSize: "14px" }}>卡片圆角</label>
+        <select
+          value={config.size}
+          onChange={(e) =>
+            onChange({
+              ...config,
+              borderRadius: e.target.value as InfoCardConfig["borderRadius"],
+            })
+          }
+          style={{
+            width: "100%",
+            padding: "6px 8px",
+            border: "1px solid #d9d9d9",
+            borderRadius: "4px",
+            fontSize: "14px",
+          }}
+        >
+          <option value="0px">0px</option>
+          <option value="4px">4px</option>
+          <option value="8px">8px</option>
+          <option value="16px">16px</option>
+        </select>
+      </div>
     </div>
   );
 }

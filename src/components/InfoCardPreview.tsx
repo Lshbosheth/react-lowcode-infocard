@@ -4,12 +4,12 @@ type InfoCardPreviewProps = {
   config: InfoCardConfig;
 };
 function InfoCardPreview({ config }: InfoCardPreviewProps) {
-  const statusColors = {
-    default: "#dddddd",
-    success: "#52c41a",
-    warning: "#faad14",
-    danger: "#f5222d",
-  };
+  // const statusColors = {
+  //   default: "#dddddd",
+  //   success: "#52c41a",
+  //   warning: "#faad14",
+  //   danger: "#f5222d",
+  // };
 
   // const statusColor = statusColors[config.statusType];
 
@@ -22,7 +22,7 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
   const textSize = isSmall ? "13px" : "14px";
 
   const handleBtnClick = (clickAction: InfoCardAction["clickAction"]) => {
-    console.log(clickAction)
+    console.log(clickAction);
     switch (clickAction) {
       case "alert":
         alert("触发警告");
@@ -34,7 +34,7 @@ function InfoCardPreview({ config }: InfoCardPreviewProps) {
         navigator.clipboard.writeText("复制内容");
         break;
     }
-  }
+  };
 
   return (
     <div

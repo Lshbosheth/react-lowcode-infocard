@@ -1,5 +1,5 @@
 import LowCodeConfigPage from "./components/LowCodeConfigPage.tsx";
-import './index.css'
+import "./index.css";
 function App() {
   return <LowCodeConfigPage />;
 }
