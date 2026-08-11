@@ -82,7 +82,7 @@ export default function ActionConfigList({ config, onChange }: ActionConfigListP
                 backgroundColor: "#ff4d4f",
                 color: "#fff",
                 border: "none",
-                backgroundRadius: "4px",
+                borderRadius: "4px",
                 cursor: "pointer",
                 fontSize: "12px",
               }}
@@ -91,7 +91,7 @@ export default function ActionConfigList({ config, onChange }: ActionConfigListP
             </button>
           </div>
           {/* 按钮文案 */}
-          <div style={{ marginBotton: "8px" }}>
+          <div style={{ marginBottom: "8px" }}>
             <label
               style={{
                 display: "block",
@@ -121,7 +121,7 @@ export default function ActionConfigList({ config, onChange }: ActionConfigListP
           <div>
             <label
               style={{
-                disable: "block",
+                display: "block",
                 marginBottom: "4px",
                 fontSize: "14px",
                 color: "#666",
@@ -151,7 +151,7 @@ export default function ActionConfigList({ config, onChange }: ActionConfigListP
           <div>
             <label
               style={{
-                disable: "block",
+                display: "block",
                 marginBottom: "4px",
                 fontSize: "14px",
                 color: "#666",
